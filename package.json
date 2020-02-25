@@ -1,0 +1,16 @@
+{
+  "name": "people-dir",
+  "version": "1.0.0",
+  "description": "people info",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahmud Hasan Rafid",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "jQuery": "^1.7.4"
+  }
+}

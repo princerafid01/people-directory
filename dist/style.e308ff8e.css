@@ -1,0 +1,50 @@
+.card-footer {
+  background-color: transparent;
+}
+
+button.more {
+  border: 0;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+
+.spin {
+  content: '';
+  /* height: 100%;
+  width: 100%; */
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 46%;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible
+}
+
+.spin_wrapper {
+  background: #fff;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  opacity: .4;
+
+}
+
+.row {
+  position: relative;
+  transition: opacity .3s;
+}
+
+.card {
+  border-radius: 0;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
