@@ -1,4 +1,4 @@
-import FILE from './info.JSON';
+import FILE from './info.json';
 
 const infos = FILE; // Main array data
 console.log(infos);

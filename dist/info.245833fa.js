@@ -117,8 +117,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"info.json":[function(require,module,exports) {
-module.exports = XG = [{
+})({"info.js":[function(require,module,exports) {
+var XG = [{
   id: "0d548577-28e4-5f77-b925-6074da6986d0",
   name: "Lizzie Park",
   hash: "681aba0a4bb59e15ba2bd7830856bd9e",
@@ -7119,104 +7119,7 @@ module.exports = XG = [{
   email: "ohe@oho.fj",
   address: "1568 Mokac Center"
 }];
-;
-},{}],"script.js":[function(require,module,exports) {
-"use strict";
-
-var _info = _interopRequireDefault(require("./info.json"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var infos = _info.default; // Main array data
-
-console.log(infos);
-var numberPerPage = 4; // page per items
-
-var currentPage = window.location.pathname.split('/')[1]; // Current page number
-
-var currentInfo = []; // currently loaded information
-// selecting dom elements
-
-var row = document.querySelector('.row');
-var nextFour = document.querySelector('.next_four');
-var firstPage = document.querySelector('.first_page');
-var reload = document.querySelector('.reload');
-var lazy = document.querySelector('.lazy');
-var quick = document.querySelector('.quick');
-
-function generateHtml(info) {
-  var html = "\n    <div class=\"col-md-3 p-0 py-3\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            ".concat(info.name, "\n            <button type=\"button\" class=\"float-right btn btn-primary  more\" data-toggle=\"modal\" data-target=\"#modal").concat(info.hash, "\">More</button>\n          </div>\n          <div class=\"card-footer\">\n            ").concat(info.address ? info.address : '  </br>', "\n          </div>\n        </div>\n      </div>\n\n\n  <div class=\"modal fade\" id=\"modal").concat(info.hash, "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\">ID: ").concat(info.id, " Hash: ").concat(info.hash, "</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <p>\n        ").concat(info.number ? "\n          <i class=\"fa fa-phone\"></i>\n          <span class=\"sudo_number\">Click here to view</span>\n          <span class=\"main_number d-none\">".concat(info.number, " </span>") : '', "\n        </p>\n        <p>\n        ").concat(info.email ? "<i class=\"fa fa-envelope\"></i>\n          <span class=\"sudo_email\">Click here to view</span>\n          <span class=\"main_email d-none\">".concat(info.email, " </span>") : '', "\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n    ");
-  return html;
-}
-
-function navigateNextFourItems(e) {
-  e.preventDefault();
-  var url = parseInt(currentPage) + numberPerPage;
-  window.location.href = currentPage ? "".concat(window.location.origin, "/").concat(url) : "/".concat(numberPerPage);
-}
-
-function firstPageItems(e) {
-  e.preventDefault();
-  window.location.href = "".concat(window.location.origin);
-} // rendering function
-
-
-function renderPage() {
-  if (currentPage === '') {
-    currentInfo = infos.slice(0, numberPerPage);
-  } else if (isNaN(parseInt(currentPage))) {
-    currentInfo = [];
-  } else {
-    currentInfo = infos.slice(currentPage, parseInt(currentPage) + numberPerPage);
-  }
-
-  var htmlNew = currentInfo.map(generateHtml).join('');
-  row.innerHTML += htmlNew;
-  document.querySelector('.spin_wrapper').classList.add('invisible');
-  var sudoNumber = document.querySelectorAll('.sudo_number');
-  var sudoEmail = document.querySelectorAll('.sudo_email');
-  sudoNumber.forEach(function (number) {
-    number.addEventListener('click', function () {
-      this.classList.add('d-none');
-      this.nextElementSibling.classList.remove('d-none');
-    });
-  });
-  sudoEmail.forEach(function (mail) {
-    mail.addEventListener('click', function () {
-      this.classList.add('d-none');
-      this.nextElementSibling.classList.remove('d-none');
-    });
-  });
-}
-
-function loadItems(e, timeOut) {
-  e.preventDefault();
-  document.querySelector('.spin_wrapper').classList.remove('invisible');
-  document.querySelector('.spin_wrapper').classList.add('visible');
-  currentPage = currentPage === '' ? 4 : parseInt(currentPage) + parseInt(numberPerPage);
-  console.log(currentPage);
-  setTimeout(function () {
-    document.querySelector('.spin_wrapper').classList.remove('visible');
-    document.querySelector('.spin_wrapper').classList.add('invisible');
-    row.appendChild(renderPage());
-  }, timeOut);
-} // rendering page with data
-
-
-renderPage(); // listening for events
-
-nextFour.addEventListener('click', navigateNextFourItems);
-firstPage.addEventListener('click', firstPageItems);
-reload.addEventListener('click', function () {
-  return window.location.reload();
-});
-lazy.addEventListener('click', function (e) {
-  return loadItems(e, 2500);
-});
-quick.addEventListener('click', function (e) {
-  return loadItems(e, 500);
-});
-},{"./info.json":"info.json"}],"../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -7244,7 +7147,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33349" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33881" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -7420,5 +7323,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","script.js"], null)
-//# sourceMappingURL=/script.75da7f30.js.map
+},{}]},{},["../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","info.js"], null)
+//# sourceMappingURL=/info.245833fa.js.map
